@@ -27,6 +27,7 @@ audio {
   
   
   var audio = document.getElementById("audio");
+  audio.load();
   
   audio.onplay = function() {
     var context = new AudioContext();
