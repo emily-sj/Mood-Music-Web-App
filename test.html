@@ -27,8 +27,8 @@ audio {
     var context = new AudioContext();
     
     var src = context.createMediaElementSource(audio);
-    src.connect(context.destination);
-    /*
+    
+    
     var analyser = context.createAnalyser();
 
     var canvas = document.getElementById("canvas");
@@ -37,7 +37,8 @@ audio {
     var ctx = canvas.getContext("2d");
 
     src.connect(analyser);
-
+    src.connect(context.destination);
+/*
     analyser.connect(context.destination);
 
     analyser.fftSize = 256;
