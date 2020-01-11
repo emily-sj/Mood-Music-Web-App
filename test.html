@@ -1,11 +1,5 @@
 <style>
 
-#thefile {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 100;
-}
 
 #canvas {
   position: fixed;
@@ -21,17 +15,16 @@ audio {
   bottom: 10px;
   width: calc(100% - 20px);
 }
-}
 </style>
 <script>
     window.onload = function() {
   
-  var file = document.getElementById("thefile");
+  var butty = document.getElementById("butt");
   var audio = document.getElementById("audio");
   
-  file.onchange = function() {
-    var files = this.files;
-    audio.src = URL.createObjectURL(files[0]);
+  butty.onclick = function() {
+    
+    audio.src = 'shoota.mp3';
     audio.load();
     audio.play();
     var context = new AudioContext();
@@ -90,7 +83,7 @@ audio {
 };
 </script>
 <div id="content">
-    <input type="file" id="thefile" accept="audio/*" />
+    <button id="butt">press me</button>
     <canvas id="canvas"></canvas>
     <audio id="audio" controls></audio>
   </div>
