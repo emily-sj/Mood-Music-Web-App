@@ -65,8 +65,7 @@ audio {
       x = 0;
 
       analyser.getByteFrequencyData(dataArray);
-
-      ctx.fillRect(0, 0, WIDTH, HEIGHT);
+      
 
       for (var i = 0; i < bufferLength; i++) {
         barHeight = dataArray[i];
