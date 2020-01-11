@@ -41,8 +41,9 @@ window.onload = function() {
   
         analyser.getByteFrequencyData(dataArray);
   
-        ctx.fillStyle = "#000";
+        ctx.fillStyle='rgba(225,225,225,0.5)';
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
+        ctx.clearRect(0,0,WIDTH,HEIGHT);
   
         for (var i = 0; i < bufferLength; i++) {
           barHeight = dataArray[i];
