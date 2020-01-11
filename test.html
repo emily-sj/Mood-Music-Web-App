@@ -29,7 +29,6 @@ audio {
   var audio = document.getElementById("audio");
   
   audio.onplay = function() {
-    audio.play();
     var context = new AudioContext();
     var src = context.createMediaElementSource(audio);
     var analyser = context.createAnalyser();
@@ -88,6 +87,6 @@ audio {
 </script>
 <div id="content">
     <canvas id="canvas"></canvas>
-    <audio id="audio" src='shoota.mp3' controls></audio>
+    <audio id="audio" src='shoota.mp3' controls type='audio/mpeg'></audio>
     <div>fawfwagnwainfawigawig</div>
   </div>
