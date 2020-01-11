@@ -23,8 +23,9 @@ audio {
   var audio = document.getElementById("audio");
   
   audio.onplay = function() {
-    /*
+    
     var context = new AudioContext();
+    /*
     var src = context.createMediaElementSource(audio);
     var analyser = context.createAnalyser();
 
@@ -74,8 +75,6 @@ audio {
         x += barWidth + 1;
       }
     }
-
-    //audio.play();
     renderFrame();*/
   };
 };
