@@ -30,7 +30,6 @@ audio {
   audio.src ='shoota.mp3'
   
   audio.onplay = function() {
-    audio.load();
     audio.play();
     var context = new AudioContext();
     var src = context.createMediaElementSource(audio);
