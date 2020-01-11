@@ -1,7 +1,7 @@
 <style>
 
+
 #canvas {
-    
   position: fixed;
   left: 0;
   top: 0;
@@ -19,18 +19,16 @@ audio {
 <script>
     window.onload = function() {
   
-  var button = document.getElementById("butt");
+  var butty = document.getElementById("butt");
   var audio = document.getElementById("audio");
   
- button.onclick = function() {
-    button.innerHTML="what!";
-    audio.src="shoota.mp3";
+  function drawrect(){
+    butty.innerHTML="woops";
+    audio.src = 'shoota.mp3';
     audio.load();
     audio.play();
     var context = new AudioContext();
     var src = context.createMediaElementSource(audio);
-    
-    
     var analyser = context.createAnalyser();
 
     var canvas = document.getElementById("canvas");
@@ -39,8 +37,6 @@ audio {
     var ctx = canvas.getContext("2d");
 
     src.connect(analyser);
-    //src.connect(context.destination);
-
     analyser.connect(context.destination);
 
     analyser.fftSize = 256;
@@ -64,9 +60,8 @@ audio {
 
       analyser.getByteFrequencyData(dataArray);
 
-      ctx.fillStyle='rgba(225,225,225,0.5)';
+      ctx.fillStyle = "#000";
       ctx.fillRect(0, 0, WIDTH, HEIGHT);
-      ctx.clearRect(0,0,WIDTH,HEIGHT);
 
       for (var i = 0; i < bufferLength; i++) {
         barHeight = dataArray[i];
@@ -81,16 +76,14 @@ audio {
         x += barWidth + 1;
       }
     }
+
     audio.play();
     renderFrame();
   };
 };
 </script>
 <div id="content">
+    <button id="butt" onclick="drawrect()">press me</button>
     <canvas id="canvas"></canvas>
-    <audio id="audio"></audio>
-    <div>fawfwagnwainfawigawig</div>
-    <button id="butt">
-        PLAY NOW!
-    </button>
+    <audio id="audio" controls></audio>
   </div>
