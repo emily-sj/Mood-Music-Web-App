@@ -29,7 +29,7 @@ audio {
   var audio = document.getElementById("audio");
   
   
-  audio.paused = function() {
+  audio.onplay = function() {
     audio.src = "shoota.mp3"
     audio.load();
     audio.play();
