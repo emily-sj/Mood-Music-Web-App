@@ -139,3 +139,25 @@
     text-decoration: none;
     transition: color 0.4s ease;
   }
+
+  #butto {
+    display:block;
+    width:150px;
+    height:40px;
+    border:3px solid white;
+    background-color:rgba(255,255,255,0);
+    color:white;
+    font-family:sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    
+    transition: background-color 1000ms, color 1000ms;
+}
+
+#butto:hover {
+    background-color:rgba(255,255,255,1);
+    color:#222;
+    cursor:pointer;
+    
+    transition: background-color 1000ms, color 1000ms;
+}
