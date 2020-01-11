@@ -28,7 +28,7 @@ audio {
   var butty = document.getElementById("butt");
   var audio = document.getElementById("audio");
   
-  function drawrect(){
+  butty.onclick = function() {
     butty.innerHTML="woops";
     audio.src = 'shoota.mp3';
     audio.load();
@@ -89,7 +89,7 @@ audio {
 };
 </script>
 <div id="content">
-    <button id="butt" onclick="drawrect()">press me</button>
+    <input type="button" id="butt" >press me</button>
     <canvas id="canvas"></canvas>
     <audio id="audio" controls></audio>
   </div>
