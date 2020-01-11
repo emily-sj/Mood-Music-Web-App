@@ -25,7 +25,7 @@ audio {
   audio.onplay = function() {
     
     var context = new AudioContext();
-    /*
+    
     var src = context.createMediaElementSource(audio);
     var analyser = context.createAnalyser();
 
@@ -33,7 +33,7 @@ audio {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     var ctx = canvas.getContext("2d");
-
+/*
     src.connect(analyser);
     analyser.connect(context.destination);
 
