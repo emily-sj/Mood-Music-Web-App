@@ -65,7 +65,10 @@ audio {
       x = 0;
 
       analyser.getByteFrequencyData(dataArray);
-      
+
+      ctx.fillStyle='rgba(225,225,225,0.5)';
+      ctx.fillRect(0, 0, WIDTH, HEIGHT);
+      ctx.clearRect(0,0,WIDTH,HEIGHT);
 
       for (var i = 0; i < bufferLength; i++) {
         barHeight = dataArray[i];
@@ -73,6 +76,8 @@ audio {
         var r = barHeight + (25 * (i/bufferLength));
         var g = 250 * (i/bufferLength);
         var b = 50;
+
+        ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
         ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
         x += barWidth + 1;
@@ -88,4 +93,5 @@ audio {
     <input type="file" id="thefile" accept="audio/*" />
     <canvas id="canvas"></canvas>
     <audio id="audio" controls></audio>
+    <div>fawfwagnwainfawigawig</div>
   </div>
