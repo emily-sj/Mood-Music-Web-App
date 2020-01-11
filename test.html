@@ -4,8 +4,8 @@
     position: absolute;
     left: 50px;
     top: 50px;
-    width:100px;
-    height:100px;
+    width:200px;
+    height:200px;
 }
 #canvas {
   position: fixed;
@@ -25,11 +25,9 @@ audio {
 <script>
     window.onload = function() {
   
-  var butty = document.getElementById("butt");
   var audio = document.getElementById("audio");
   
-  function drawrect(){
-    butty.innerHTML="woops";
+  function drawzz(){
     audio.src = 'shoota.mp3';
     audio.load();
     audio.play();
@@ -89,7 +87,7 @@ audio {
 };
 </script>
 <div id="content">
-    <button id="butt" onclick="drawrect()">press me</button>
+    <input type="button" id="butt" value="click me" onclick="drawzz()">
     <canvas id="canvas"></canvas>
     <audio id="audio" controls></audio>
   </div>
