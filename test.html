@@ -4,8 +4,8 @@
     position: absolute;
     left: 50px;
     top: 50px;
-    width:100px;
-    height:100px;
+    width:200px;
+    height:200px;
 }
 #canvas {
   position: fixed;
@@ -25,10 +25,9 @@ audio {
 <script>
     window.onload = function() {
   
-  var butty = document.getElementById("butt");
   var audio = document.getElementById("audio");
   
-  butty.onclick = function() {
+  document.getElementById("butt").onclick = function() {
     audio.src = 'shoota.mp3';
     audio.load();
     audio.play();
