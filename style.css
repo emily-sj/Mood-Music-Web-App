@@ -35,10 +35,20 @@ header {
     color: #fff;
     font-size: 90px;
 }
-.inform {
+.desu {
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.desu h1{
+    color: #fff;
+    font-size: 20px;
+}
+.home {
     position: absolute;
     top: 5%;
-    left: 85%;
+    left: 74%;
     display:block;
     width:150px;
     height:40px;
@@ -51,6 +61,31 @@ header {
     
     transition: background-color 1000ms, color 1000ms;
 }
+
+.home:hover{
+    background-color:rgba(255,255,255,1);
+    color:#222;
+    cursor:pointer;
+    
+    transition: background-color 1000ms, color 1000ms;
+}
+.inform {
+    position: absolute;
+    top: 5%;
+    left: 84%;
+    display:block;
+    width:150px;
+    height:40px;
+    border:3px solid white;
+    background-color:rgba(255,255,255,0);
+    color:white;
+    font-family:sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    
+    transition: background-color 1000ms, color 1000ms;
+}
+
 .inform:hover{
     background-color:rgba(255,255,255,1);
     color:#222;
@@ -84,11 +119,11 @@ header {
 
 #thefile {
     position: absolute;
-    top: 50%;
+    top: 5%;
     left: 10%;
     display:block;
     width:180px;
-    height:50px;
+    height:20px;
     border:3px solid white;
     background-color:rgba(255,255,255,0);
     color:white;
