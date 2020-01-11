@@ -62,8 +62,19 @@ header {
 
 #thefile {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 50%;
+    left: 10%;
+    display:block;
+    width:180px;
+    height:50px;
+    border:3px solid white;
+    background-color:rgba(255,255,255,0);
+    color:white;
+    font-family:sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    
+    transition: background-color 1000ms, color 1000ms;
     z-index: 100;
   }
   
