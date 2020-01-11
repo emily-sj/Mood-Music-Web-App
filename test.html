@@ -19,13 +19,15 @@ audio {
 <script>
     window.onload = function() {
   
-  
+  var button = document.getElementById("butt");
   var audio = document.getElementById("audio");
-  var context = new AudioContext();
-  audio.onplay = function() {
+  
+ button.onclick = function() {
     
-   
-    
+    audio.src='shoota.mp3';
+    audio.load();
+    audio.play();
+    var context = new AudioContext();
     var src = context.createMediaElementSource(audio);
     
     
@@ -37,7 +39,7 @@ audio {
     var ctx = canvas.getContext("2d");
 
     src.connect(analyser);
-    src.connect(context.destination);
+    //src.connect(context.destination);
 
     analyser.connect(context.destination);
 
@@ -88,4 +90,7 @@ audio {
     <canvas id="canvas"></canvas>
     <audio id="audio" src='shoota.mp3' controls type='audio/mpeg'></audio>
     <div>fawfwagnwainfawigawig</div>
+    <button id="butt">
+        PLAY NOW!
+    </button>
   </div>
