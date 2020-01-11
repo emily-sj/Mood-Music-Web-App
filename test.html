@@ -7,7 +7,7 @@
 }
 
 #canvas {
-    background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('pagobackground.jpg');
+    
   position: fixed;
   left: 0;
   top: 0;
@@ -66,7 +66,6 @@ audio {
 
       analyser.getByteFrequencyData(dataArray);
 
-      ctx.fillStyle = "#000";
       ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
       for (var i = 0; i < bufferLength; i++) {
@@ -75,8 +74,6 @@ audio {
         var r = barHeight + (25 * (i/bufferLength));
         var g = 250 * (i/bufferLength);
         var b = 50;
-
-        ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
         ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
         x += barWidth + 1;
