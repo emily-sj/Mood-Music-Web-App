@@ -1,10 +1,4 @@
 <style>
-    #thefile {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 100;
-}
 
 #canvas {
     
@@ -27,8 +21,6 @@ audio {
   
   
   var audio = document.getElementById("audio");
-  audio.load();
-  audio.src='shoota.mp3';
   
   audio.onplay = function() {
     var context = new AudioContext();
