@@ -21,10 +21,10 @@ audio {
   
   
   var audio = document.getElementById("audio");
-  
+  var context = new AudioContext();
   audio.onplay = function() {
     
-    var context = new AudioContext();
+   
     
     var src = context.createMediaElementSource(audio);
     
