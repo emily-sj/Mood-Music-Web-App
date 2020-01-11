@@ -31,7 +31,7 @@
   
   .showcase:before {
     content: '';
-    background: url('https://images.pexels.com/photos/533923/pexels-photo-533923.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center center/cover;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('sunset.gif');
     position: absolute;
     top: 0;
     left: 0;
