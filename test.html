@@ -23,8 +23,8 @@ audio {
   var audio = document.getElementById("audio");
   
  button.onclick = function() {
-    
-    audio.src='shoota.mp3';
+    button.innerHTML="what!";
+    audio.src="shoota.mp3";
     audio.load();
     audio.play();
     var context = new AudioContext();
@@ -88,7 +88,7 @@ audio {
 </script>
 <div id="content">
     <canvas id="canvas"></canvas>
-    <audio id="audio" src='shoota.mp3' controls type='audio/mpeg'></audio>
+    <audio id="audio"></audio>
     <div>fawfwagnwainfawigawig</div>
     <button id="butt">
         PLAY NOW!
