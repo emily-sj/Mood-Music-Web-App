@@ -74,7 +74,7 @@ document.getElementById("snap").addEventListener("click", function() {
 
   
   context.drawImage(video, 0, 0, 640, 480);
-  img.src=canvas.toDataURL();
+  img.src=canvas.toDataURL('image/jpeg');
   alert(img.src);
 
 });
