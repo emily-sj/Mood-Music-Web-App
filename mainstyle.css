@@ -85,5 +85,6 @@ header {
 
 #video {
     position: absolute;
-    left: 50%;
+    top:25%;
+    left: 35%;
 }
