@@ -72,12 +72,13 @@ const img = new Image();
 document.getElementById("snap").addEventListener("click", function() {
   
 
-
+  alert('ayyyyy');
   context.drawImage(video, 0, 0, 640, 480);
   img.src=canvas.toDataURL();
+  document.getELementById("snap").innerHTML = "fwawrrr";
 
 });
-document.getELementById("snap").innerHTML = "fwawrrr";
+
 
 
 
