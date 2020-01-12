@@ -1,43 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Spotify Web Playback SDK Quick Start Tutorial</title>
-</head>
+  <head>
+    <title>Time to VIBE OUT!</title>
+      <link rel="stylesheet" href="mainstyle.css" type="text/css">
+  </head>
+
+
 <body>
-  <h1>Spotify Web Playback SDK Quick Start Tutorial</h1>
-  <h2>Open your console log: <code>View > Developer > JavaScript Console</code></h2>
+<!--
+	Ideally these elements aren't created until it's confirmed that the
+	client supports video/camera, but for the sake of illustrating the
+	elements involved, they are created with markup (not JavaScript)
+-->
 
-  <script src="https://sdk.scdn.co/spotify-player.js"></script>
-  <script>
-    window.onSpotifyWebPlaybackSDKReady = () => {
-      const token = 'BQDyD2y6dfJlcMtpV365kvK-SMRkJIOaqJkMOCChX7cgQPdWOHRYArE0SVxOfpi-CFdU5A4LoQjkG39EUflWY3vZDjM2dHa5wrdOBR8L3OQb3_mzLb0htfVEawhw9ay9lA5Ybh-TDpdBfyHyLy70hcpBf9HrnoxWnmzl5Bn32q1GY0TE40doncc';
-      const player = new Spotify.Player({
-        name: 'Mood Music Bot',
-        getOAuthToken: cb => { cb(token); }
-      });
+<header>
+  
+  
 
-      // Error handling
-      player.addListener('initialization_error', ({ message }) => { console.error(message); });
-      player.addListener('authentication_error', ({ message }) => { console.error(message); });
-      player.addListener('account_error', ({ message }) => { console.error(message); });
-      player.addListener('playback_error', ({ message }) => { console.error(message); });
+  <video id="video" width="640" height="480" autoplay></video>
+  <button id="snap">Snap Photo</button>
+  <canvas id="canvas" width="640" height="480"></canvas>
+  <a href="title.html">
+      <button class="home">
+        HOME
+      </button>
+    </a>
+    <a href="info.html">
+      <button class="inform">
+        INFO
+      </button>
+    </a>
+  <button id="recom">Recommendo Expresso!</button>
+    <script src="mainscript.js"></script>
 
-      // Playback status updates
-      player.addListener('player_state_changed', state => { console.log(state); });
+</header>
 
-      // Ready
-      player.addListener('ready', ({ device_id }) => {
-        console.log('Ready with Device ID', device_id);
-      });
-
-      // Not Ready
-      player.addListener('not_ready', ({ device_id }) => {
-        console.log('Device ID has gone offline', device_id);
-      });
-
-      // Connect to the player!
-      player.connect();
-    };
-  </script>
 </body>
+</html>
+
+
+
+<!--
+    <head>
+      <title>Time to VIBE OUT!</title>
+        <link rel="stylesheet" href="mainstyle.css" type="text/css">
+    </head>
+    <body>
+        <header>
+            <div>
+                <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="300" height="380" frameborder="1" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+
+            <a href="title.html">
+                <button class="home">
+                  HOME
+                </button>
+              </a>
+              <a href="info.html">
+                <button class="inform">
+                  INFO
+                </button>
+              </a>
+              <a href="main.html">
+                  <button class="register">
+                      PLAY NOW!
+                  </button>
+              </a>
+
+        </header>
+    </body>
+
 </html>
