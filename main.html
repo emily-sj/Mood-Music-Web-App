@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
- 
-   <div>
-        <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="300" height="380" frameborder="1" allowtransparency="true" allow="encrypted-media"></iframe>
-    </div>
+  <head>
+    <title>Time to VIBE OUT!</title>
+      <link rel="stylesheet" href="mainstyle.css" type="text/css">
+  </head>
+   
 
 <body>
 <!--
@@ -12,9 +12,28 @@
 	client supports video/camera, but for the sake of illustrating the 
 	elements involved, they are created with markup (not JavaScript)
 -->
-<video id="video" width="640" height="480" autoplay></video>
+<header>
+  <video id="video" width="640" height="480" autoplay></video>
 <button id="snap">Snap Photo</button>
 <canvas id="canvas" width="640" height="480"></canvas>
+  <a href="title.html">
+      <button class="home">
+        HOME
+      </button>
+    </a>
+    <a href="info.html">
+      <button class="inform">
+        INFO
+      </button>
+    </a>
+    <a href="main.html">
+        <button class="register">
+            PLAY NOW!
+        </button>
+    </a>
+
+</header>
+
 <script>
 // Grab elements, create settings, etc.
 var video = document.getElementById('video');
@@ -61,7 +80,8 @@ document.getElementById("snap").addEventListener("click", function() {
 </script>
 </body>
 </html>
-=======
+
+<!--
     <head>
       <title>Time to VIBE OUT!</title>
         <link rel="stylesheet" href="mainstyle.css" type="text/css">
@@ -92,4 +112,3 @@ document.getElementById("snap").addEventListener("click", function() {
     </body>
     
 </html>
->>>>>>> 9fee83f3009bcddc4a1d096dcd665177b6010fe1
