@@ -59,7 +59,7 @@ header {
     
     transition: background-color 1000ms, color 1000ms;
 }
-.snap{
+#snap{
     position: absolute;
     top: 75%;
     left: 43%;
@@ -75,7 +75,7 @@ header {
     
     transition: background-color 1000ms, color 1000ms;
 }
-.snap:hover{
+#snap:hover{
     background-color:rgba(255,255,255,1);
     color:#222;
     cursor:pointer;
