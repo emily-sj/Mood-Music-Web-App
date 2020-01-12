@@ -119,10 +119,10 @@ header {
 
 #thefile {
     position: absolute;
-    top: 5%;
-    left: 10%;
+    top: 2%;
+    left: 2%;
     display:block;
-    width:180px;
+    width:80px;
     height:20px;
     border:3px solid white;
     background-color:rgba(255,255,255,0);
