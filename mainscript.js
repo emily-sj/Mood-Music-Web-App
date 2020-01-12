@@ -1,6 +1,10 @@
+require(['@google-cloud/vision'], function(@google-cloud/vision) {
+
+
+
 'use strict';
 
-const vision = require('@google-cloud/vision');
+//const vision = require('@google-cloud/vision');
 // Grab elements, create settings, etc.
 var video = document.getElementById('video');
 
@@ -109,3 +113,4 @@ faces.forEach((face, i) => {
 
 
 }
+});
