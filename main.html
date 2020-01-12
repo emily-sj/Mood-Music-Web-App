@@ -68,10 +68,18 @@ var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var video = document.getElementById('video');
 
+const img = new Image();
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
-	context.drawImage(video, 0, 0, 640, 480);
+  //context.drawImage(video, 0, 0, 640, 480);
+  img.src=canvas.toDataURL();
+
 });
+document.getELementById("snap").innerHTML = img.src;
+
+
+
+
 </script>
 </body>
 </html>
