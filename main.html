@@ -4,18 +4,23 @@
     <title>Time to VIBE OUT!</title>
       <link rel="stylesheet" href="mainstyle.css" type="text/css">
   </head>
-   
+
 
 <body>
 <!--
-	Ideally these elements aren't created until it's confirmed that the 
-	client supports video/camera, but for the sake of illustrating the 
+	Ideally these elements aren't created until it's confirmed that the
+	client supports video/camera, but for the sake of illustrating the
 	elements involved, they are created with markup (not JavaScript)
 -->
+
 <header>
+  <script>
+  source="require.js"
+  </script>
+
   <video id="video" width="640" height="480" autoplay></video>
   <button id="snap">Snap Photo</button>
-  <canvas id="canvas" width="640" height="480"></canvas> 
+  <canvas id="canvas" width="640" height="480"></canvas>
   <a href="title.html">
       <button class="home">
         HOME
@@ -30,6 +35,9 @@
 </header>
 
 <script>
+'use strict';
+
+const vision = require('@google-cloud/vision');
 // Grab elements, create settings, etc.
 var video = document.getElementById('video');
 
@@ -43,7 +51,7 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     });
 }
 
-/* Legacy code below: getUserMedia 
+/* Legacy code below: getUserMedia
 else if(navigator.getUserMedia) { // Standard
     navigator.getUserMedia({ video: true }, function(stream) {
         video.src = stream;
@@ -68,12 +76,20 @@ else if(navigator.getUserMedia) { // Standard
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 
+
+
+
+// [END vision_face_detection_tutorial_imports]
+// [START vision_face_detection_tutorial_client]
+// Creates a client
+const client = new vision.ImageAnnotatorClient();
+
 const img = new Image();
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
-  
 
-  
+
+
   context.drawImage(video, 0, 0, 640, 480);
   img.src=canvas.toDataURL('image/jpeg');
   //alert(img.src);
@@ -87,12 +103,52 @@ document.getElementById("snap").addEventListener("click", function() {
   console.log(`    Anger: ${face.angerLikelihood}`);
   console.log(`    Sorrow: ${face.sorrowLikelihood}`);
   console.log(`    Surprise: ${face.surpriseLikelihood}`);
-  
-  });*/
-  alert(bin64); 
-  console.log(bin64);
 
+  });*/
+  main();
 });
+
+
+
+
+
+// [START vision_face_detection_tutorial_imports]
+// By default, the client will authenticate using the service account file
+// specified by the GOOGLE_APPLICATION_CREDENTIALS environment variable and use
+// the project specified by the GCLOUD_PROJECT environment variable. See
+// https://googlecloudplatform.github.io/gcloud-node/#/docs/google-cloud/latest/guides/authentication
+
+
+
+
+/**
+ * TODO(developer): Uncomment the following line before running the sample.
+ */
+
+console.log("hello");
+
+
+async function main(bin){
+  const fileName= 'bin';
+
+const [result] = await client.faceDetection(fileName);
+
+const faces = result.faceAnnotations;
+console.log('Faces:');
+faces.forEach((face, i) => {
+  console.log(`  Face #${i + 1}:`);
+  console.log(`    Joy: ${face.joyLikelihood}`);
+  console.log(`    Anger: ${face.angerLikelihood}`);
+  console.log(`    Sorrow: ${face.sorrowLikelihood}`);
+  console.log(`    Surprise: ${face.surpriseLikelihood}`);
+});
+
+
+
+}
+
+
+
 
 
 
@@ -129,5 +185,5 @@ document.getElementById("snap").addEventListener("click", function() {
 
         </header>
     </body>
-    
+
 </html>

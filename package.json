@@ -23,7 +23,13 @@
     "express": "~4.16.0",
     "cors": "^2.8.4",
     "querystring": "~0.2.0",
-    "request": "~2.83.0"
+    "request": "~2.83.0",
+    "@google-cloud/vision": "^1.8.0",
+    "canvas": "^2.0.0",
+    "mathjs": "^6.0.0",
+    "natural": "^0.6.1",
+    "redis": "^2.8.0",
+    "yargs": "^15.0.0"
   },
     "requests": [
       {
