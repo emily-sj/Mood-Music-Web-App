@@ -1,15 +1,8 @@
-
-
-define(function (require) {
-    //Notice the space between require and the arguments.
-    var namedModule = require('@google-cloud/vision');
-
-
 'use strict';
 
-const vision = require('@google-cloud/vision');
 // Grab elements, create settings, etc.
 var video = document.getElementById('video');
+
 
 // Get access to the camera!
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -43,8 +36,7 @@ else if(navigator.getUserMedia) { // Standard
 //const vision = require('@google-cloud/vision');
 //const client = new vision.ImageAnnotatorClient();
 // Elements for taking the snapshot
-var canvas = document.getElementById('canvas');
-var context = canvas.getContext('2d');
+
 
 
 
@@ -52,18 +44,21 @@ var context = canvas.getContext('2d');
 // [END vision_face_detection_tutorial_imports]
 // [START vision_face_detection_tutorial_client]
 // Creates a client
-const client = new vision.ImageAnnotatorClient();
+//const client = new vision.ImageAnnotatorClient();
 
 const img = new Image();
 // Trigger photo take
 document.getElementById("snap").addEventListener("click", function() {
 
 
-
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
   context.drawImage(video, 0, 0, 640, 480);
-  img.src=canvas.toDataURL('image/jpeg');
+  var dataURL = canvas.toDataURL("image/png"),
+          dataURL = dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
   //alert(img.src);
-  var bin64 = img.src.substring(img.src.indexOf("base64,") +7);
+  //console.log
+  //var bin64 = img.src.substring(img.src.indexOf("base64,") +7);
   /*const [result] = await client.faceDetection(bin64);
   //const faces = result.faceAnnotations;
   console.log('Faces:');
@@ -75,8 +70,8 @@ document.getElementById("snap").addEventListener("click", function() {
   console.log(`    Surprise: ${face.surpriseLikelihood}`);
 
   });*/
-  main();
-});
+  main(dataURL); 
+}); 
 
 
 
@@ -97,23 +92,55 @@ document.getElementById("snap").addEventListener("click", function() {
 
 console.log("hello");
 
-
 async function main(bin){
-  const fileName= 'bin';
+    
+    let url = "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyAwL18K_jvRTPE1PxAQLBcJwjcaRTVV_0k"; 
+    let data = {
+        "requests":[
+        {
+            "image":{
+                "content": bin
+              },
+            "features":[
+            {
+                "type":"FACE_DETECTION",
+                "maxResults":10
+            }
+            ]
+        }
+        ]
+    };
+    async function getData(url, data) {
+        let response = await fetch(url, {
+            method: 'POST', 
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+        let responseData = await response.json();
+        return responseData; 
+    }
 
-const [result] = await client.faceDetection(fileName);
+    let response = getData(url, data);
+    console.log(response); 
+    let resolved = Promise.resolve(response); 
 
-const faces = result.faceAnnotations;
-console.log('Faces:');
-faces.forEach((face, i) => {
-  console.log(`  Face #${i + 1}:`);
-  console.log(`    Joy: ${face.joyLikelihood}`);
-  console.log(`    Anger: ${face.angerLikelihood}`);
-  console.log(`    Sorrow: ${face.sorrowLikelihood}`);
-  console.log(`    Surprise: ${face.surpriseLikelihood}`);
-});
+    resolved.then(function(data) {
+        console.log(data.responses[0]["faceAnnotations"][0]); 
+    });
 
+    //const [result] = await client.faceDetection(fileName);
 
+    /* const faces = result.faceAnnotations;
+    console.log('Faces:');
+    faces.forEach((face, i) => {
+    console.log(`  Face #${i + 1}:`);
+    console.log(`    Joy: ${face.joyLikelihood}`);
+    console.log(`    Anger: ${face.angerLikelihood}`);
+    console.log(`    Sorrow: ${face.sorrowLikelihood}`);
+    console.log(`    Surprise: ${face.surpriseLikelihood}`);
+    }); */
 
 }
-});
+
