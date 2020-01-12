@@ -83,7 +83,7 @@ header {
     transition: background-color 1000ms, color 1000ms;
 }
 
-.video {
+#video {
     position: absolute;
     left: 50%;
 }
