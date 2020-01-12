@@ -62,6 +62,8 @@ else if(navigator.getUserMedia) { // Standard
 }
 */
 
+const vision = require('@google-cloud/vision');
+const client = new vision.ImageAnnotatorClient();
 
 // Elements for taking the snapshot
 var canvas = document.getElementById('canvas');
@@ -77,12 +79,20 @@ document.getElementById("snap").addEventListener("click", function() {
   img.src=canvas.toDataURL('image/jpeg');
   //alert(img.src);
   var bin64 = img.src.substring(img.src.indexOf("base64,") +7);
-alert(bin64);
+  const [result] = await client.faceDetection(bin64);
+  const faces = result.faceAnnotations;
+  console.log('Faces:');
+  faces.forEach((face, i) => {
+  console.log(`  Face #${i + 1}:`);
+  console.log(`    Joy: ${face.joyLikelihood}`);
+  console.log(`    Anger: ${face.angerLikelihood}`);
+  console.log(`    Sorrow: ${face.sorrowLikelihood}`);
+  console.log(`    Surprise: ${face.surpriseLikelihood}`);
+//alert(bin64);
+  });
+
 
 });
-
-
-
 
 
 
@@ -90,7 +100,6 @@ alert(bin64);
 </script>
 </body>
 </html>
-
 <!--
     <head>
       <title>Time to VIBE OUT!</title>
